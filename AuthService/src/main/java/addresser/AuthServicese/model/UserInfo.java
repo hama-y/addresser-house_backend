@@ -1,16 +1,32 @@
-package addresser.AuthServicese.Model;
+package addresser.AuthServicese.model;
+
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
 @Table(name = "users")
+@Entity
+//@Data
 public class UserInfo {
     @Id
      public int id;
      public String name;
      public String accesstoken;
+    public String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public int getId() {
         return id;

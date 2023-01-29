@@ -1,7 +1,7 @@
-package addresser.AuthServicese.Service;
+package addresser.AuthServicese.service;
 
-import addresser.AuthServicese.Model.UserInfo;
-import addresser.AuthServicese.Repositories.UserRepository;
+import addresser.AuthServicese.model.UserInfo;
+import addresser.AuthServicese.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
