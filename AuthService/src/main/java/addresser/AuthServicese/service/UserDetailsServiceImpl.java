@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,16 +20,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
     @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String mailaddress) throws UsernameNotFoundException {
 
-        Optional<UserTableEntity> user = userRepository.findById(Integer.parseInt(id));
+        Optional<UserTableEntity> user = userRepository.findBymailaddress(mailaddress);
 
         // 本来ならここでDBなどからユーザを検索することになるが、サンプルのためリストに含まれるかで判定している
 //        if(!usernameList.contains(username)){
 //            throw new UsernameNotFoundException(username);
 //        }
 
-        return User.withUsername(user.get().getName())
+        return User.withUsername(user.get().getMailaddress())
                 .password(user.get().getPassword())
                 .authorities("ROLE_USER") // ユーザの権限
                 .build();
