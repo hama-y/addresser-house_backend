@@ -3,26 +3,26 @@ package addresser.AuthServicese.form;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class UserForm {
-    private String loginId;
-    private String pass;
+    private String username;
+    private String password;
 
-    public String getLoginId() {
-        return loginId;
+    public String getUsername() {
+        return username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
     public void encrypt(PasswordEncoder encoder){
-        this.pass = encoder.encode(pass);
+        this.password = encoder.encode(password);
     }
 
     @Override
     public String toString() {
         return "UserForm{" +
-                "loginId='" + loginId + '\'' +
-                ", pass='" + pass + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
